@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1nj3vgeo04bu"]
+
+[ext_resource type="Shader" path="res://sprite_shader.gdshader" id="1_pqsex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga27f"]
+shader = ExtResource("1_pqsex")
+
+[sub_resource type="MeshTexture" id="MeshTexture_rq5r5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ga27f")
+texture = SubResource("MeshTexture_rq5r5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
