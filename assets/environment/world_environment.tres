@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=2 format=3]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://durf1q76ea5im"]
 
 [ext_resource type="Sky" uid="uid://c6d8gr3pggidh" path="res://assets/environment/world_sky.tres" id="1_q6grx"]
 
@@ -6,5 +6,13 @@
 background_mode = 2
 sky = ExtResource("1_q6grx")
 tonemap_mode = 2
+ssao_enabled = true
 sdfgi_enabled = true
-glow_enabled = true
+fog_light_energy = 4.64
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.16
+volumetric_fog_albedo = Color(0.984314, 0.980392, 0.984314, 1)
+volumetric_fog_emission = Color(0, 0.0352941, 0.423529, 1)
+volumetric_fog_emission_energy = 0.15
+volumetric_fog_length = 8.0
+volumetric_fog_detail_spread = 0.5

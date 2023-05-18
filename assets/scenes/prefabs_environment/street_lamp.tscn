@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgrgxedd8uhcy"]
+[gd_scene load_steps=9 format=3 uid="uid://bgrgxedd8uhcy"]
 
 [ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_sbsdi"]
 
@@ -23,27 +23,20 @@ emission_energy_multiplier = 2.0
 [sub_resource type="BoxMesh" id="BoxMesh_yd1d1"]
 size = Vector3(0.25, 0.4, 0.25)
 
-[sub_resource type="BoxMesh" id="BoxMesh_d18pa"]
-size = Vector3(0.05, 0.4, 0.05)
-
 [sub_resource type="BoxMesh" id="BoxMesh_f660y"]
 size = Vector3(0.337, 0.05, 0.311)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_updj6"]
+[sub_resource type="BoxMesh" id="BoxMesh_d18pa"]
+size = Vector3(0.05, 0.4, 0.05)
 
 [node name="StreetLamp" type="Node3D"]
 
-[node name="LampLight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.00712083, 0.999975, 0, -0.999975, -0.00712083, 2.05182, 3.55411, -0.00162721)
-light_color = Color(0.929412, 0.843137, 0.52549, 1)
-shadow_enabled = true
-spot_range = 1.0
-spot_attenuation = 6.06287
-
 [node name="Spot" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.00712083, 0.999975, 0, -0.999975, -0.00712083, 2.05182, 3.47026, 0.01666)
+transform = Transform3D(1, 0, 0, 0, -0.00712083, 0.999975, 0, -0.999975, -0.00712083, 2.03374, 3.39732, 0.01666)
 light_color = Color(0.886275, 0.878431, 0.180392, 1)
 shadow_enabled = true
+shadow_opacity = 0.44
+shadow_blur = 2.0
 distance_fade_enabled = true
 distance_fade_begin = 10.0
 distance_fade_shadow = 3.0
@@ -80,40 +73,38 @@ cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("BoxMesh_yd1d1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.15)
-material_override = ExtResource("1_sbsdi")
-mesh = SubResource("BoxMesh_d18pa")
-
 [node name="Top" type="MeshInstance3D" parent="MeshInstance3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00207186, 0.208739, -0.00541088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109673, 0.202365, -0.00357959)
 material_override = ExtResource("1_sbsdi")
 cast_shadow = 0
 mesh = SubResource("BoxMesh_f660y")
 
 [node name="Bottom" type="MeshInstance3D" parent="MeshInstance3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00207186, -0.198343, -0.00541088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109673, -0.204717, -0.00357959)
 material_override = ExtResource("1_sbsdi")
+cast_shadow = 0
 mesh = SubResource("BoxMesh_f660y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.15)
+material_override = ExtResource("1_sbsdi")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_d18pa")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, -0.15)
 material_override = ExtResource("1_sbsdi")
+cast_shadow = 0
 mesh = SubResource("BoxMesh_d18pa")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.15)
 material_override = ExtResource("1_sbsdi")
+cast_shadow = 0
 mesh = SubResource("BoxMesh_d18pa")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, -0.15)
 material_override = ExtResource("1_sbsdi")
-mesh = SubResource("BoxMesh_d18pa")
-
-[node name="_debugPlane" type="MeshInstance3D" parent="."]
-transform = Transform3D(8.26816, 0, 0, 0, 9.36303, 0, 0, 0, 9.36303, 0, 0, 0)
-visible = false
 cast_shadow = 0
-gi_mode = 0
-mesh = SubResource("PlaneMesh_updj6")
+mesh = SubResource("BoxMesh_d18pa")

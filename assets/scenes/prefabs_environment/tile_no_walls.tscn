@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqufbqcyupx0p"]
+[gd_scene load_steps=4 format=3 uid="uid://c8t7nseppmrax"]
 
-[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_cgwg0"]
+[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_6gn87"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i4s0w"]
 size = Vector2(4, 4)
@@ -8,9 +8,9 @@ size = Vector2(4, 4)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hg2cb"]
 data = PackedVector3Array(2, 0, 2, -2, 0, 2, 2, 0, -2, -2, 0, 2, -2, 0, -2, 2, 0, -2)
 
-[node name="Tile" type="MeshInstance3D"]
+[node name="TileNoWalls" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007622, -2.38419e-07, -0.00123072)
-material_override = ExtResource("1_cgwg0")
+material_override = ExtResource("1_6gn87")
 mesh = SubResource("PlaneMesh_i4s0w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

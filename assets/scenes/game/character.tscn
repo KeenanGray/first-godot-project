@@ -30,3 +30,12 @@ shape = SubResource("CapsuleShape3D_dl60m")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(12.9836, 3.48787e-16, -3.57831e-15, -4.52851e-15, 1, 3.57831e-15, 4.52851e-15, -3.48787e-16, 10.2593, -25.9672, -1.1693, -23.9275)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.774599, 0.573894, -0.265785, -0.269765, 0.679903, 0.681879, 0.572034, -0.456483, 0.681469, 0.0895701, 0.948041, 1.46836)
+light_color = Color(0.54902, 0.54902, 0.54902, 1)
+light_indirect_energy = 2.0
+light_specular = 0.0
+distance_fade_enabled = true
+distance_fade_begin = 1.0
+omni_attenuation = 0.659755
