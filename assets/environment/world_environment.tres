@@ -1,0 +1,10 @@
+[gd_resource type="Environment" load_steps=2 format=3]
+
+[ext_resource type="Sky" uid="uid://c6d8gr3pggidh" path="res://assets/environment/world_sky.tres" id="1_q6grx"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_q6grx")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true

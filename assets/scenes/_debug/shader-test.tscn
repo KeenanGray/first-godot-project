@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1nj3vgeo04bu"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Shader" path="res://sprite_shader.gdshader" id="1_pqsex"]
+[ext_resource type="Shader" path="res://shaders/sprite_shader.gdshader" id="1_pqsex"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ga27f"]
 shader = ExtResource("1_pqsex")

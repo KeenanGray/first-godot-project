@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://btxeowmoacx1f"]
+
+[ext_resource type="Material" uid="uid://cpxh7ywl66k15" path="res://brown_mat.tres" id="1_vjs1q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8qtcd"]
+size = Vector3(0.2, 2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fk04u"]
+size = Vector3(0.2, 0.8, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jygr0"]
+size = Vector2(2, 1.1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xynqd"]
+data = PackedVector3Array(1, -0.55, 0, -1, -0.55, 0, 1, 0.55, 0, -1, -0.55, 0, -1, 0.55, 0, 1, 0.55, 0)
+
+[node name="Fence" type="Node3D"]
+
+[node name="Beam" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0145207, -0.999895, 0, 0.999895, 0.0145207, 0, 0, 0, 0.257808, -0.00822026, 0.827413, 0.00285959)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_8qtcd")
+
+[node name="Post" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -4.99788e-16, 8.94286e-17, 3.48787e-16, 1.43293, -8.94286e-17, -3.48787e-16, 4.99788e-16, 0.256399, -0.743003, 0.575638, 2.3067e-16)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_fk04u")
+
+[node name="Post2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -4.99788e-16, 8.94286e-17, 3.48787e-16, 1.43293, -8.94286e-17, -3.48787e-16, 4.99788e-16, 0.256399, -0.368732, 0.575638, 1.00129e-16)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_fk04u")
+
+[node name="Post3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -4.99788e-16, 8.94286e-17, 3.48787e-16, 1.43293, -8.94286e-17, -3.48787e-16, 4.99788e-16, 0.256399, 0.0117826, 0.575638, -3.25895e-17)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_fk04u")
+
+[node name="Post4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -4.99788e-16, 8.94286e-17, 3.48787e-16, 1.43293, -8.94286e-17, -3.48787e-16, 4.99788e-16, 0.256399, 0.350759, 0.575638, -1.5082e-16)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_fk04u")
+
+[node name="Post5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -4.99788e-16, 8.94286e-17, 3.48787e-16, 1.43293, -8.94286e-17, -3.48787e-16, 4.99788e-16, 0.256399, 0.729794, 0.575638, -2.83022e-16)
+material_override = ExtResource("1_vjs1q")
+mesh = SubResource("BoxMesh_fk04u")
+
+[node name="Collider" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555826, 0)
+visible = false
+mesh = SubResource("QuadMesh_jygr0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xynqd")
