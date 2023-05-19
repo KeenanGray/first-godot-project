@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn72ufgut4v35"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_r5bbh"]
+[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://assets/materials/black_mat.tres" id="1_cgwg0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i4s0w"]
 size = Vector2(4, 4)
@@ -20,9 +20,9 @@ data = PackedVector3Array(-0.05, 2, 2, 0.05, 2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pfmj2"]
 data = PackedVector3Array(-0.05, 2, 2, 0.05, 2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, 0.05, 2, -2, -0.05, 2, -2, 0.05, -2, -2, -0.05, 2, -2, -0.05, -2, -2, 0.05, -2, -2, 0.05, 2, 2, 0.05, 2, -2, 0.05, -2, 2, 0.05, 2, -2, 0.05, -2, -2, 0.05, -2, 2, -0.05, 2, -2, -0.05, 2, 2, -0.05, -2, -2, -0.05, 2, 2, -0.05, -2, 2, -0.05, -2, -2, 0.05, 2, 2, -0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, -0.05, 2, -2, 0.05, 2, -2, -0.05, -2, 2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, -2, -2)
 
-[node name="TileOpenRight" type="MeshInstance3D"]
+[node name="TileOpenLeft" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007622, -2.38419e-07, -0.00123072)
-material_override = ExtResource("1_r5bbh")
+material_override = ExtResource("1_cgwg0")
 mesh = SubResource("PlaneMesh_i4s0w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -31,7 +31,8 @@ mesh = SubResource("PlaneMesh_i4s0w")
 shape = SubResource("ConcavePolygonShape3D_hg2cb")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05, 2, 2.41678e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15, 2, 3.25963e-09)
+visible = false
 mesh = SubResource("BoxMesh_vhi2y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall2"]
@@ -41,6 +42,7 @@ shape = SubResource("ConcavePolygonShape3D_fbmk4")
 
 [node name="Wall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.72529e-09, 2, -2.05)
+visible = false
 mesh = SubResource("BoxMesh_vhi2y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall3"]
@@ -50,6 +52,7 @@ shape = SubResource("ConcavePolygonShape3D_ku7l4")
 
 [node name="Wall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0999999, 2, 2.05)
+visible = false
 mesh = SubResource("BoxMesh_vhi2y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall4"]

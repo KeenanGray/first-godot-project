@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgrgxedd8uhcy"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_sbsdi"]
+[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://assets/materials/black_mat.tres" id="1_sbsdi"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3xvjj"]
 top_radius = 0.1

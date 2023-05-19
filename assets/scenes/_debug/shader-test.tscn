@@ -1,16 +1,109 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=22 format=3 uid="uid://c4eab5b321nkj"]
 
-[ext_resource type="Shader" path="res://shaders/sprite_shader.gdshader" id="1_pqsex"]
+[ext_resource type="Shader" path="res://shaders/color-shader.gdshader" id="1_hjajx"]
+[ext_resource type="Script" path="res://assets/scenes/_debug/CustomCameraShader.gd" id="1_rjesa"]
+[ext_resource type="Texture2D" uid="uid://r450ybri6k2i" path="res://assets/imgs/icon.svg" id="2_htpet"]
+[ext_resource type="Shader" path="res://shaders/screen/screen-space-grayscale.gdshader" id="2_ooe2n"]
+[ext_resource type="Shader" path="res://shaders/uv-shader.gdshader" id="3_y3f48"]
+[ext_resource type="Shader" path="res://shaders/texture-shader.gdshader" id="4_0dr2r"]
+[ext_resource type="Shader" path="res://shaders/texture-tint-shader.gdshader" id="5_6rljc"]
+[ext_resource type="Texture2D" uid="uid://ct4b1vxubt2oo" path="res://assets/imgs/eugene-golovesov-ozjCpifheHk-unsplash.jpg" id="7_djj85"]
+[ext_resource type="Shader" path="res://shaders/texture-tile.gdshader" id="8_6yyot"]
+[ext_resource type="Shader" path="res://shaders/texture-tween.gdshader" id="8_7tac7"]
+[ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="9_fkva3"]
+[ext_resource type="Shader" path="res://shaders/blurred.gdshader" id="9_jx4th"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga27f"]
-shader = ExtResource("1_pqsex")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvd34"]
+shader = ExtResource("2_ooe2n")
 
-[sub_resource type="MeshTexture" id="MeshTexture_rq5r5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_suwx3"]
+shader = ExtResource("1_hjajx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38y5x"]
+shader = ExtResource("3_y3f48")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_esdcj"]
+shader = ExtResource("4_0dr2r")
+shader_parameter/lerp = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4cdc5"]
+shader = ExtResource("5_6rljc")
+shader_parameter/tint = Color(1, 0.301961, 0.65098, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w42xj"]
+shader = ExtResource("8_7tac7")
+shader_parameter/tween = 0.0
+shader_parameter/texture1 = ExtResource("7_djj85")
+shader_parameter/texture2 = ExtResource("2_htpet")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hraun"]
+shader = ExtResource("8_6yyot")
+shader_parameter/tiling = 3.05
+shader_parameter/texture1 = ExtResource("2_htpet")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nykld"]
+shader = ExtResource("9_fkva3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dmvjg"]
+shader = ExtResource("9_jx4th")
+shader_parameter/res = 0.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_ga27f")
-texture = SubResource("MeshTexture_rq5r5")
-
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(230, 88)
+zoom = Vector2(2, 2)
+script = ExtResource("1_rjesa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_jvd34")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = -261.0
+offset_right = -282.0
+offset_bottom = -261.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Color Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_suwx3")
+texture = ExtResource("2_htpet")
+
+[node name="UV Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_38y5x")
+position = Vector2(150, 0)
+texture = ExtResource("2_htpet")
+
+[node name="Texture Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_esdcj")
+position = Vector2(297, 0)
+texture = ExtResource("2_htpet")
+
+[node name="Texture Tint Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4cdc5")
+position = Vector2(470, 3)
+texture = ExtResource("2_htpet")
+
+[node name="Lerp-Between-Sprites" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w42xj")
+position = Vector2(-3, 156)
+texture = ExtResource("2_htpet")
+
+[node name="Tiled" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hraun")
+position = Vector2(151, 156)
+texture = ExtResource("2_htpet")
+
+[node name="Greyscale" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nykld")
+position = Vector2(304, 159)
+texture = ExtResource("2_htpet")
+
+[node name="Blurred" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dmvjg")
+position = Vector2(470, 159)
+texture = ExtResource("2_htpet")

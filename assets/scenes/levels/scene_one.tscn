@@ -1,15 +1,25 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgeroppd5m1p4"]
+[gd_scene load_steps=28 format=3 uid="uid://cihbawi3gvggs"]
 
 [ext_resource type="Environment" uid="uid://durf1q76ea5im" path="res://assets/environment/world_environment.tres" id="1_vx2j8"]
-[ext_resource type="Environment" uid="uid://jiqdwdohi1dw" path="res://world_environment.tres" id="1_y3wct"]
-[ext_resource type="PackedScene" uid="uid://dqufbqcyupx0p" path="res://assets/scenes/prefabs_environment/tile_open_left.tscn" id="2_e8a3j"]
-[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="2_hg8v5"]
+[ext_resource type="PackedScene" uid="uid://dqufbqcyupx0p" path="res://assets/scenes/prefabs_environment/tiles/tile_open_left.tscn" id="2_e8a3j"]
 [ext_resource type="PackedScene" uid="uid://c4san127fc006" path="res://assets/scenes/game/character.tscn" id="2_jm5lp"]
 [ext_resource type="PackedScene" uid="uid://bgrgxedd8uhcy" path="res://assets/scenes/prefabs_environment/street_lamp.tscn" id="2_rmw6r"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="3_6mljp"]
+[ext_resource type="Sky" uid="uid://c6d8gr3pggidh" path="res://assets/environment/world_sky.tres" id="3_gg5he"]
 [ext_resource type="PackedScene" uid="uid://btxeowmoacx1f" path="res://assets/scenes/prefabs_environment/fence.tscn" id="4_q521t"]
-[ext_resource type="PackedScene" uid="uid://bpqc1cfyftix4" path="res://assets/scenes/prefabs_environment/tile_path.tscn" id="9_ogl0w"]
-[ext_resource type="PackedScene" uid="uid://c7fsat4okx0os" path="res://assets/scenes/prefabs_environment/tile_l_shape.tscn" id="10_nsl1k"]
+[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://assets/materials/black_mat.tres" id="5_a7glm"]
+[ext_resource type="PackedScene" uid="uid://bpqc1cfyftix4" path="res://assets/scenes/prefabs_environment/tiles/tile_path.tscn" id="9_ogl0w"]
+[ext_resource type="PackedScene" uid="uid://c7fsat4okx0os" path="res://assets/scenes/prefabs_environment/tiles/tile_l_shape.tscn" id="10_nsl1k"]
+[ext_resource type="PackedScene" uid="uid://dn72ufgut4v35" path="res://assets/scenes/prefabs_environment/tiles/tile_open_right.tscn" id="11_xlu7o"]
+[ext_resource type="PackedScene" uid="uid://c8t7nseppmrax" path="res://assets/scenes/prefabs_environment/tiles/tile_no_walls.tscn" id="12_wcrpd"]
+
+[sub_resource type="Environment" id="Environment_fcang"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = ExtResource("3_gg5he")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_513u3"]
 size = Vector3(30, 80, 30)
@@ -20,7 +30,7 @@ size = Vector3(30, 80, 30)
 size = Vector3(15, 12, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mbnpo"]
-size = Vector2(40, 40)
+size = Vector2(100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_f1jcq"]
 
@@ -56,11 +66,11 @@ data = PackedVector3Array(-0.3, 0.3, 0.3, 0.3, 0.3, 0.3, -0.3, -0.3, 0.3, 0.3, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81024, 1.60159)
 environment = ExtResource("1_vx2j8")
 script = ExtResource("3_6mljp")
-follow_distance = -2.5
+follow_distance = -5.0
 character = NodePath("../Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_y3wct")
+environment = SubResource("Environment_fcang")
 
 [node name="--LIGHTS--" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43583, 9.53674e-07, -15.4204)
@@ -137,7 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8589, 40.2633, -39.8132)
 mesh = SubResource("BoxMesh_513u3")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="--BACKGROUND--/--BUILDINGS--"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9516, 5.72273, 0.52599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9516, 5.72273, -0.0530481)
 material_override = SubResource("StandardMaterial3D_uvfsw")
 mesh = SubResource("BoxMesh_0tqj8")
 
@@ -158,8 +168,7 @@ mesh = SubResource("BoxMesh_0tqj8")
 
 [node name="GlobalPlane" type="MeshInstance3D" parent="--BACKGROUND--"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0144153, 0)
-visible = false
-material_override = ExtResource("2_hg8v5")
+material_override = ExtResource("5_a7glm")
 mesh = SubResource("PlaneMesh_mbnpo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -170,6 +179,15 @@ shadow_blur = 10.0
 
 [node name="StreetLamp" parent="." instance=ExtResource("2_rmw6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985824, -0.0161428, 0.0122906)
+
+[node name="StreetLamp2" parent="." instance=ExtResource("2_rmw6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6034, -0.0161428, 0.0122906)
+
+[node name="StreetLamp3" parent="." instance=ExtResource("2_rmw6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6034, -0.0161428, -7.49155)
+
+[node name="StreetLamp4" parent="." instance=ExtResource("2_rmw6r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4982, -0.0161428, -7.49155)
 
 [node name="--STATIC--" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43583, 9.53674e-07, -15.4204)
@@ -262,3 +280,27 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 
 [node name="TileLShape" parent="." instance=ExtResource("10_nsl1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6279, 4.76837e-07, -0.0430202)
+
+[node name="TilePath5" parent="." instance=ExtResource("9_ogl0w")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -19.6279, 4.76837e-07, -4.04302)
+
+[node name="TileLShape2" parent="." instance=ExtResource("10_nsl1k")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, -19.6279, 4.76837e-07, -8.04302)
+
+[node name="TilePath6" parent="." instance=ExtResource("9_ogl0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6279, 4.76837e-07, -8.04302)
+
+[node name="TilePath9" parent="." instance=ExtResource("9_ogl0w")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -27.5279, 4.76837e-07, -4.04302)
+
+[node name="TilePath8" parent="." instance=ExtResource("9_ogl0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5279, 4.76837e-07, -7.94302)
+
+[node name="TileOpenRight" parent="." instance=ExtResource("11_xlu7o")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -27.5279, 4.76837e-07, -0.0430205)
+
+[node name="TileNoWalls" parent="." instance=ExtResource("12_wcrpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5279, 4.76837e-07, -8.04302)
+
+[node name="TilePath7" parent="." instance=ExtResource("9_ogl0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6279, 7.15256e-07, -11.943)

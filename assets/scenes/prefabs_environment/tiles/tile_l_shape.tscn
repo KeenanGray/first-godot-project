@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7fsat4okx0os"]
 
-[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://black_mat.tres" id="1_yr5m0"]
+[ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://assets/materials/black_mat.tres" id="1_yr5m0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i4s0w"]
 size = Vector2(4, 4)
