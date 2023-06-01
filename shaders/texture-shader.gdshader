@@ -1,7 +1,5 @@
 shader_type canvas_item;
 
-uniform float lerp;
-
 void fragment() {
 	//use texture colors
 	COLOR = texture(TEXTURE,UV);

@@ -1,20 +1,22 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4eab5b321nkj"]
+[gd_scene load_steps=25 format=3 uid="uid://c4eab5b321nkj"]
 
 [ext_resource type="Shader" path="res://shaders/color-shader.gdshader" id="1_hjajx"]
 [ext_resource type="Script" path="res://assets/scenes/_debug/CustomCameraShader.gd" id="1_rjesa"]
+[ext_resource type="Shader" path="res://shaders/screen/screen-space-blur.gdshader" id="2_erxvm"]
 [ext_resource type="Texture2D" uid="uid://r450ybri6k2i" path="res://assets/imgs/icon.svg" id="2_htpet"]
-[ext_resource type="Shader" path="res://shaders/screen/screen-space-grayscale.gdshader" id="2_ooe2n"]
 [ext_resource type="Shader" path="res://shaders/uv-shader.gdshader" id="3_y3f48"]
 [ext_resource type="Shader" path="res://shaders/texture-shader.gdshader" id="4_0dr2r"]
 [ext_resource type="Shader" path="res://shaders/texture-tint-shader.gdshader" id="5_6rljc"]
+[ext_resource type="Shader" path="res://shaders/heat-distort-shader.gdshader" id="6_mwrsw"]
 [ext_resource type="Texture2D" uid="uid://ct4b1vxubt2oo" path="res://assets/imgs/eugene-golovesov-ozjCpifheHk-unsplash.jpg" id="7_djj85"]
 [ext_resource type="Shader" path="res://shaders/texture-tile.gdshader" id="8_6yyot"]
 [ext_resource type="Shader" path="res://shaders/texture-tween.gdshader" id="8_7tac7"]
 [ext_resource type="Shader" path="res://shaders/greyscale.gdshader" id="9_fkva3"]
 [ext_resource type="Shader" path="res://shaders/blurred.gdshader" id="9_jx4th"]
+[ext_resource type="Texture2D" uid="uid://dokfqo21mgo7" path="res://assets/imgs/Hor_Bars_1.png" id="14_2kmyd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jvd34"]
-shader = ExtResource("2_ooe2n")
+shader = ExtResource("2_erxvm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_suwx3"]
 shader = ExtResource("1_hjajx")
@@ -24,7 +26,6 @@ shader = ExtResource("3_y3f48")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_esdcj"]
 shader = ExtResource("4_0dr2r")
-shader_parameter/lerp = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4cdc5"]
 shader = ExtResource("5_6rljc")
@@ -32,13 +33,12 @@ shader_parameter/tint = Color(1, 0.301961, 0.65098, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w42xj"]
 shader = ExtResource("8_7tac7")
-shader_parameter/tween = 0.0
-shader_parameter/texture1 = ExtResource("7_djj85")
-shader_parameter/texture2 = ExtResource("2_htpet")
+shader_parameter/tween = 1.0
+shader_parameter/Texture2 = ExtResource("7_djj85")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hraun"]
 shader = ExtResource("8_6yyot")
-shader_parameter/tiling = 3.05
+shader_parameter/tiling = 3.16
 shader_parameter/texture1 = ExtResource("2_htpet")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nykld"]
@@ -48,6 +48,12 @@ shader = ExtResource("9_fkva3")
 shader = ExtResource("9_jx4th")
 shader_parameter/res = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aasxr"]
+shader = ExtResource("6_mwrsw")
+shader_parameter/percentage = 0.0
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/image_sample = ExtResource("14_2kmyd")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -56,6 +62,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("1_rjesa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource("ShaderMaterial_jvd34")
@@ -80,7 +87,7 @@ texture = ExtResource("2_htpet")
 
 [node name="Texture Shader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_esdcj")
-position = Vector2(297, 0)
+position = Vector2(308, 0)
 texture = ExtResource("2_htpet")
 
 [node name="Texture Tint Shader" type="Sprite2D" parent="."]
@@ -106,4 +113,9 @@ texture = ExtResource("2_htpet")
 [node name="Blurred" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dmvjg")
 position = Vector2(470, 159)
+texture = ExtResource("2_htpet")
+
+[node name="Heat Distort Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_aasxr")
+position = Vector2(-6, 304)
 texture = ExtResource("2_htpet")

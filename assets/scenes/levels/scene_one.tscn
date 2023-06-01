@@ -1,17 +1,17 @@
 [gd_scene load_steps=28 format=3 uid="uid://cihbawi3gvggs"]
 
 [ext_resource type="Environment" uid="uid://durf1q76ea5im" path="res://assets/environment/world_environment.tres" id="1_vx2j8"]
-[ext_resource type="PackedScene" uid="uid://dqufbqcyupx0p" path="res://assets/scenes/prefabs_environment/tiles/tile_open_left.tscn" id="2_e8a3j"]
+[ext_resource type="PackedScene" path="res://assets/scenes/prefabs_environment/tiles/tile_open_left.tscn" id="2_e8a3j"]
 [ext_resource type="PackedScene" uid="uid://c4san127fc006" path="res://assets/scenes/game/character.tscn" id="2_jm5lp"]
-[ext_resource type="PackedScene" uid="uid://bgrgxedd8uhcy" path="res://assets/scenes/prefabs_environment/street_lamp.tscn" id="2_rmw6r"]
+[ext_resource type="PackedScene" path="res://assets/scenes/prefabs_environment/street_lamp.tscn" id="2_rmw6r"]
 [ext_resource type="Script" path="res://scripts/camera_follow.gd" id="3_6mljp"]
 [ext_resource type="Sky" uid="uid://c6d8gr3pggidh" path="res://assets/environment/world_sky.tres" id="3_gg5he"]
-[ext_resource type="PackedScene" uid="uid://btxeowmoacx1f" path="res://assets/scenes/prefabs_environment/fence.tscn" id="4_q521t"]
+[ext_resource type="PackedScene" path="res://assets/scenes/prefabs_environment/fence.tscn" id="4_q521t"]
 [ext_resource type="Material" uid="uid://lnynh3gh1wbh" path="res://assets/materials/black_mat.tres" id="5_a7glm"]
 [ext_resource type="PackedScene" uid="uid://bpqc1cfyftix4" path="res://assets/scenes/prefabs_environment/tiles/tile_path.tscn" id="9_ogl0w"]
 [ext_resource type="PackedScene" uid="uid://c7fsat4okx0os" path="res://assets/scenes/prefabs_environment/tiles/tile_l_shape.tscn" id="10_nsl1k"]
 [ext_resource type="PackedScene" uid="uid://dn72ufgut4v35" path="res://assets/scenes/prefabs_environment/tiles/tile_open_right.tscn" id="11_xlu7o"]
-[ext_resource type="PackedScene" uid="uid://c8t7nseppmrax" path="res://assets/scenes/prefabs_environment/tiles/tile_no_walls.tscn" id="12_wcrpd"]
+[ext_resource type="PackedScene" path="res://assets/scenes/prefabs_environment/tiles/tile_no_walls.tscn" id="12_wcrpd"]
 
 [sub_resource type="Environment" id="Environment_fcang"]
 background_mode = 2

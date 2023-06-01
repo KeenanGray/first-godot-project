@@ -4,7 +4,7 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
 
 
 void fragment(){
-	vec4 colour = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 colour = texture(SCREEN_TEXTURE, SCREEN_UV); //This is the line that lets us use the screen texture
 	float avg = (colour.r+colour.g+colour.b)/3.0;
 	
 	COLOR = vec4(avg,avg,avg,1);
